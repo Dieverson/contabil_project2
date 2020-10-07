@@ -72,7 +72,13 @@ class PlanoDeContaController extends Controller
 
     public function show($id)
     {
-        //
+        $data = plano_de_contas::where('id_plano_de_conta', $id)->first();
+
+        return Response()->json([
+            'status' => true,
+            $data
+        ]);
+
     }
 
 

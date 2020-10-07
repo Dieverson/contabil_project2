@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 });
 
 Route::get('/planodeconta', 'PlanoDeConta\PlanoDeContaController@index');
+Route::get('/planodeconta/{id}', 'PlanoDeConta\PlanoDeContaController@show');
 Route::post('/planodeconta', 'PlanoDeConta\PlanoDeContaController@store');
 
 Route::group(['middleware' => 'guest:api'], function () {
