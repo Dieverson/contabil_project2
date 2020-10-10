@@ -5,79 +5,38 @@ namespace App\Http\Controllers\SubGrupo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\SubGrupo;
+
 class SubGrupoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        SubGrupo::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $subGrupo = SubGrupo::create([
+            'numero_da_conta' => $data['numero_da_conta'],
+            'nome_da_conta' => $data['nome_da_conta'],
+            'grupos_idgrupos' => $data['grupos_idgrupos'],
+            'natureza_idnatureza' => $data['natureza_idnatureza'],
+        ]);
+
+        return response()->json([
+            'status' => true, 
+            'data' => $subGrupo
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
